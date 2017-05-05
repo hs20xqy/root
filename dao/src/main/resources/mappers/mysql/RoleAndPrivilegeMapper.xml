@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.root.mapper.RoleAndPrivilegeMapper">
+  <resultMap id="BaseResultMap" type="com.root.bean.RoleAndPrivilege">
+    <id column="inner_id" jdbcType="VARCHAR" property="innerId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="privilege_id" jdbcType="VARCHAR" property="privilegeId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    inner_id, role_id, privilege_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from role_privilege
+    where inner_id = #{innerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from role_privilege
+    where inner_id = #{innerId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.root.bean.RoleAndPrivilege">
+    insert into role_privilege (inner_id, role_id, privilege_id
+      )
+    values (#{innerId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{privilegeId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.root.bean.RoleAndPrivilege">
+    insert into role_privilege
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="innerId != null">
+        inner_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="privilegeId != null">
+        privilege_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="innerId != null">
+        #{innerId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="privilegeId != null">
+        #{privilegeId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.root.bean.RoleAndPrivilege">
+    update role_privilege
+    <set>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="privilegeId != null">
+        privilege_id = #{privilegeId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where inner_id = #{innerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.root.bean.RoleAndPrivilege">
+    update role_privilege
+    set role_id = #{roleId,jdbcType=VARCHAR},
+      privilege_id = #{privilegeId,jdbcType=VARCHAR}
+    where inner_id = #{innerId,jdbcType=VARCHAR}
+  </update>
+</mapper>
