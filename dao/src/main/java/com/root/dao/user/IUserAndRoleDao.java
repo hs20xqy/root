@@ -5,7 +5,7 @@ import com.root.bean.UserAndRole;
 /**
  * Created by hs on 2017/5/5.
  */
-public interface IUserAndRole {
+public interface IUserAndRoleDao {
 
     /**
      * 添加角色

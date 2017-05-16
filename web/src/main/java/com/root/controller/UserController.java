@@ -5,7 +5,7 @@ import com.common.entity.api.ApiResult;
 import com.common.entity.api.ApiResultUtil;
 import com.common.entity.api.ApiSuccessResult;
 import com.root.bean.User;
-import com.root.service.IUserService;
+import com.root.service.user.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

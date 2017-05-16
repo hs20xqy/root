@@ -1,7 +1,7 @@
 package com.root.dao.user.impl;
 
 import com.root.bean.UserAndRole;
-import com.root.dao.user.IUserAndRole;
+import com.root.dao.user.IUserAndRoleDao;
 import com.root.mapper.UserAndRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * Created by hs on 2017/5/5.
  */
 @Component
-public class UserAndRoleImpl implements IUserAndRole {
+public class UserAndRoleDaoImpl implements IUserAndRoleDao {
 
     @Autowired
     UserAndRoleMapper userAndRoleMapper;

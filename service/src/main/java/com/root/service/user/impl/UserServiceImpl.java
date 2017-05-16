@@ -1,10 +1,11 @@
-package com.root.service.impl;
+package com.root.service.user.impl;
 
 import com.common.util.encrypt.EncryptUtil;
 import com.root.bean.User;
-import com.root.dao.user.IUserAndRole;
+import com.root.bean.UserAndRole;
+import com.root.dao.user.IUserAndRoleDao;
 import com.root.dao.user.IUserDao;
-import com.root.service.IUserService;
+import com.root.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,7 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     IUserDao userDao;
     @Autowired
-    IUserAndRole userAndRole;
-
+    IUserAndRoleDao userAndRoleDao;
 
     public User login(String userName, String password) {
         // 对密码进行加密处理
@@ -65,5 +65,12 @@ public class UserServiceImpl implements IUserService {
         return  userDao.addUser(user) > 0;
     }
 
+    public boolean addRole(UserAndRole userAndRole) {
+        return userAndRoleDao.insert(userAndRole) > 0;
+    }
+
+    public boolean deleteRole(String innerId) {
+        return userAndRoleDao.delete(innerId) > 0;
+    }
 
 }

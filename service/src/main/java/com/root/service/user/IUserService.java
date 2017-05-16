@@ -1,6 +1,7 @@
-package com.root.service;
+package com.root.service.user;
 
 import com.root.bean.User;
+import com.root.bean.UserAndRole;
 
 /**
  * Created by hs on 2017/5/5.
@@ -20,4 +21,18 @@ public interface IUserService {
      * @return
      */
     boolean register(User user);
+
+    /**
+     * 给用户添加角色
+     * @param userAndRole
+     * @return
+     */
+    boolean addRole(UserAndRole userAndRole);
+
+    /**
+     * 删除角色
+     * @param innerId
+     * @return
+     */
+    boolean deleteRole(String innerId);
 }

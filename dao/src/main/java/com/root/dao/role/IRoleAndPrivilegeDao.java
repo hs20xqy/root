@@ -6,7 +6,7 @@ import com.root.bean.UserAndRole;
 /**
  * Created by hs on 2017/5/5.
  */
-public interface IRoleAndPrivilege {
+public interface IRoleAndPrivilegeDao {
 
     /**
      * 添加权限

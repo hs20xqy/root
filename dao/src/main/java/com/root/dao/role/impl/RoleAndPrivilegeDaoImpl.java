@@ -1,7 +1,7 @@
 package com.root.dao.role.impl;
 
 import com.root.bean.RoleAndPrivilege;
-import com.root.dao.role.IRoleAndPrivilege;
+import com.root.dao.role.IRoleAndPrivilegeDao;
 import com.root.mapper.RoleAndPrivilegeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * Created by hs on 2017/5/5.
  */
 @Component
-public class RoleAndPrivilegeImpl implements IRoleAndPrivilege {
+public class RoleAndPrivilegeDaoImpl implements IRoleAndPrivilegeDao {
 
     @Autowired
     RoleAndPrivilegeMapper roleAndPrivilegeMapper;
