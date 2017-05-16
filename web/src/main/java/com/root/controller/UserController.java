@@ -25,8 +25,8 @@ public class UserController extends BaseController {
     IUserService userService;
 
     @RequestMapping(value = "/login")
-    public ApiResult login(String userName, String passWord) {
-        User user = userService.login(userName, passWord);
+    public ApiResult login(String userName, String password) {
+        User user = userService.login(userName, password);
         if (user == null) {
             return new ApiFailResult();
         }
